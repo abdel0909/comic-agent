@@ -1,0 +1,71 @@
+{
+  "title": "Friedensgipfel vor dem Museum",
+  "style": "symbolic comic, clean lineart, soft cel shading, vivid colors",
+  "characters": ["Bär", "Adler", "Fuchs", "Eule", "Taube"],
+  "panels": [
+    {
+      "id": "p1",
+      "setting": "grand museum plaza with tall stone columns, red carpet, jets flying in the sky, symbolic atmosphere",
+      "beats": [
+        "bear (Russia) and eagle (USA) arrive on the plaza",
+        "they face each other seriously",
+        "background shows banners of peace"
+      ],
+      "dialogue": [
+        {"speaker": "Bär", "text": "Es ist Zeit zu reden."},
+        {"speaker": "Adler", "text": "Vielleicht finden wir heute einen Weg."}
+      ]
+    },
+    {
+      "id": "p2",
+      "setting": "same plaza, afternoon light, symbolic map on the ground between them",
+      "beats": [
+        "bear places paw on part of the map",
+        "eagle holds a glowing shield (security promise)",
+        "tension in the air"
+      ],
+      "dialogue": [
+        {"speaker": "Bär", "text": "Dies gehört mir."},
+        {"speaker": "Adler", "text": "Nur wenn wir die Sicherheit für alle wahren."}
+      ]
+    },
+    {
+      "id": "p3",
+      "setting": "museum steps with microphones, symbolic press conference scene",
+      "beats": [
+        "bear and eagle stand side by side",
+        "crowd of symbolic animals in the background",
+        "peace banner above"
+      ],
+      "dialogue": [
+        {"speaker": "Adler", "text": "Das war ein produktives Gespräch."},
+        {"speaker": "Bär", "text": "Aber wir haben keine Einigung."}
+      ]
+    },
+    {
+      "id": "p4",
+      "setting": "same plaza, fox and owl arrive, standing near the bear and eagle",
+      "beats": [
+        "fox (Europe) raises paw diplomatically",
+        "owl (Ukraine) looks determined",
+        "bear and eagle glance at them"
+      ],
+      "dialogue": [
+        {"speaker": "Fuchs", "text": "Lasst uns gemeinsam an den Frieden glauben."},
+        {"speaker": "Eule", "text": "Wir dürfen nicht aufgeben."}
+      ]
+    },
+    {
+      "id": "p5",
+      "setting": "warm sunlight shining, all four animals form a circle",
+      "beats": [
+        "white dove with olive branch flies above",
+        "circle of animals looking upward",
+        "hopeful mood despite tension"
+      ],
+      "dialogue": [
+        {"speaker": "Alle", "text": "Frieden ist stärker als Krieg."}
+      ]
+    }
+  ]
+}
