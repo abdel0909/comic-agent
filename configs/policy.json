@@ -1,0 +1,15 @@
+{
+  "model": "stabilityai/stable-diffusion-xl-base-1.0",
+  "use_controlnet_openpose": true,
+  "openpose_model": "thibaud/controlnet-openpose-sdxl-1.0",
+  "width": 832,
+  "height": 1152,
+  "num_inference_steps": 28,
+  "guidance_scale": 6.5,
+  "variants_per_panel": 1,
+  "prompt_boosters": {
+    "lineart": 0.8,
+    "cel_shading": 0.7,
+    "color_harmony": 0.5
+  }
+}
