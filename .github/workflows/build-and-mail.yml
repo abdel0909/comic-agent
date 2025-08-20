@@ -1,0 +1,60 @@
+name: Build comic and email PDF
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+
+jobs:
+  build_and_mail:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt || true
+
+      # === Comic rendern (Symboltiere, Szene anpassen, z.B. peace_summit.json) ===
+      - name: Render comic (mock/CPU or GPU if runner has one)
+        run: |
+          python -m src.agent --scene prompts/peace_summit.json --policy configs/policy.json --chars configs/characters.json
+
+      # === PDF erzeugen ===
+      - name: Export PDF
+        run: |
+          mkdir -p out out/pages out/panels
+          python -m src.export_pdf
+          ls -la out
+
+      # (Optional) Artefakte anhängen, damit du sie in Actions auch siehst
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: comic-output
+          path: out/
+
+      # === E-Mail mit Anhang senden ===
+      - name: Send email with PDF
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USER }}
+          password: ${{ secrets.SMTP_PASS }}
+          subject: "Dein Comic ist fertig ✅"
+          to: ${{ secrets.MAIL_TO }}
+          from: ${{ secrets.MAIL_FROM }}
+          secure: true            # STARTTLS
+          body: |
+            Hallo! Dein Comic wurde soeben gebaut.
+            Im Anhang findest du die Datei comic.pdf.
+          attachments: out/comic.pdf
