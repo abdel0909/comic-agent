@@ -1,0 +1,12 @@
+{
+  "Maus": {
+    "prompt": "small forest mouse, big curious eyes, light brown fur",
+    "lora": "refs/loras/mouse-lora.safetensors",
+    "weight": 0.8
+  },
+  "Löwe": {
+    "prompt": "majestic lion, warm golden mane, gentle expression",
+    "lora": "refs/loras/lion-lora.safetensors",
+    "weight": 0.8
+  }
+}
