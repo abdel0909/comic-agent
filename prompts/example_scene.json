@@ -1,0 +1,31 @@
+{
+  "title": "Der Löwe und die Maus – Begegnung",
+  "style": "clean lineart, soft cel shading, natural vivid colors",
+  "characters": ["Maus", "Löwe"],
+  "panels": [
+    {
+      "id": "p1",
+      "setting": "sunlit savanna clearing, tall grass, acacia tree",
+      "beats": ["mid shot", "mouse emerges from grass", "sense of scale"],
+      "dialogue": [{"speaker": "Maus", "text": "Wow… so groß ist die Steppe!"}],
+      "pose_hint": "refs/poses/p1_openpose.png"
+    },
+    {
+      "id": "p2",
+      "setting": "same place, low angle near grass",
+      "beats": ["close-up", "lion paw enters frame left", "mouse startled"],
+      "dialogue": [{"speaker": "Maus", "text": "Äh… Hallo?"}],
+      "pose_hint": "refs/poses/p2_openpose.png"
+    },
+    {
+      "id": "p3",
+      "setting": "same place, warm backlight",
+      "beats": ["two-shot", "lion lowers head kindly", "mouse relaxes"],
+      "dialogue": [
+        {"speaker": "Löwe", "text": "Keine Sorge, Kleine."},
+        {"speaker": "Maus", "text": "Ich bin Maus. Und du?"}
+      ],
+      "pose_hint": "refs/poses/p3_openpose.png"
+    }
+  ]
+}
