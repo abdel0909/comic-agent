@@ -1,12 +1,27 @@
 {
-  "Maus": {
-    "prompt": "small forest mouse, big curious eyes, light brown fur",
-    "lora": "refs/loras/mouse-lora.safetensors",
+  "Bär": {
+    "prompt": "majestic brown bear, symbol of Russia, strong and serious, comic style, lineart, cel shading",
+    "lora": "",
     "weight": 0.8
   },
-  "Löwe": {
-    "prompt": "majestic lion, warm golden mane, gentle expression",
-    "lora": "refs/loras/lion-lora.safetensors",
+  "Adler": {
+    "prompt": "bald eagle, symbol of the USA, proud and powerful, wings wide open, comic style, lineart, cel shading",
+    "lora": "",
+    "weight": 0.8
+  },
+  "Fuchs": {
+    "prompt": "clever red fox, symbol of Europe, wearing a small blue scarf with yellow stars, friendly and diplomatic, comic style, lineart, cel shading",
+    "lora": "",
+    "weight": 0.8
+  },
+  "Eule": {
+    "prompt": "wise owl, symbol of Ukraine, feathers in shades of yellow and blue, determined eyes, comic style, lineart, cel shading",
+    "lora": "",
+    "weight": 0.8
+  },
+  "Taube": {
+    "prompt": "white dove holding an olive branch, symbol of peace, glowing softly, comic style, lineart, cel shading",
+    "lora": "",
     "weight": 0.8
   }
 }
