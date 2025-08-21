@@ -1,29 +1,38 @@
-# src/export_pdf.py
+from reportlab.platypus import SimpleDocTemplate, Image, PageBreak, Paragraph
+from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib.pagesizes import A4
-from reportlab.pdfgen import canvas
-import os, glob, sys
+from reportlab.lib import colors
+import os, glob
 
-def export_pdf(out_path="out/comic.pdf", panels_dir="out/panels", pages_dir="out/pages"):
-    os.makedirs("out", exist_ok=True)
-    os.makedirs(panels_dir, exist_ok=True)
-    os.makedirs(pages_dir, exist_ok=True)
+def export_pdf():
+    doc = SimpleDocTemplate("out/comic.pdf", pagesize=A4)
+    story = []
+    styles = getSampleStyleSheet()
+    text_style = styles["Normal"]
+    text_style.fontSize = 14
+    text_style.leading = 18
+    
+    panels = sorted(glob.glob("out/pages/page_*.png"))
 
-    page_imgs  = sorted(glob.glob(os.path.join(pages_dir, "*.png")))
-    panel_imgs = sorted(glob.glob(os.path.join(panels_dir, "*.png")))
-    if not page_imgs and not panel_imgs:
-        raise SystemExit("❌ Keine Bilder gefunden. Erst rendern (src.agent), dann PDF exportieren.")
+    for i, img_path in enumerate(panels):
+        # --- Bildseite ---
+        story.append(Image(img_path, width=400, height=500))  # passt Bild ein
+        story.append(PageBreak())
 
-    c = canvas.Canvas(out_path, pagesize=A4)
-    W, H = A4
-
-    for p in page_imgs:
-        c.drawImage(p, 0, 0, W, H, preserveAspectRatio=True, anchor='c'); c.showPage()
-
-    for p in panel_imgs:
-        c.drawImage(p, 0, 0, W, H, preserveAspectRatio=True, anchor='c'); c.showPage()
-
-    c.save()
-    print(f"✅ PDF gespeichert: {out_path} (Seitenbilder: {len(page_imgs)}, Panels: {len(panel_imgs)})")
-
-if __name__ == "__main__":
-    export_pdf()
+        # --- Textseite ---
+        txt_file = img_path.replace(".png", ".txt")  # zu jedem Bild ein .txt?
+        if os.path.exists(txt_file):
+            with open(txt_file, "r", encoding="utf-8") as f:
+                text = f.read()
+        else:
+            text = f"Text zu Szene {i+1}"
+        
+        # Stil: Pergament-artiger Hintergrund
+        story.append(Paragraph(
+            f"<para align=center><b><font color='brown'>{text}</font></b></para>",
+            text_style
+        ))
+        story.append(PageBreak())
+    
+    doc.build(story)
+    print("✅ Comic mit getrennten Textseiten gespeichert: out/comic.pdf")
